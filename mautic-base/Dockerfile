@@ -48,7 +48,7 @@ RUN { \
       echo 'upload_max_filesize=128M'; \
       echo 'post_max_size=128M'; \
       echo 'max_execution_time=300'; \
-    } > /usr/local/etc/php/conf.d/eou.ini
+    } > /usr/local/etc/php/conf.d/mautic-base.ini
 
 RUN { \
       echo  'AddDefaultCharset utf-8'; \
@@ -69,7 +69,7 @@ RUN { \
       echo  '  ExpiresByType image/x-icon "access 1 year"'; \
       echo  '  ExpiresDefault "access 1 month"'; \
       echo  '</IfModule>'; \
-    } > /etc/apache2/conf-available/eou.conf
+    } > /etc/apache2/conf-available/mautic-base.conf
 
 RUN a2enmod headers rewrite expires \
-    && a2enconf eou
+    && a2enconf mautic-base
